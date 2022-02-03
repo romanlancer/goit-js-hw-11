@@ -1,0 +1,35 @@
+{{#each this}}
+	{{#each hits}}
+		<div
+			class='col-3 d-flex align-self-stretch card shadow-sm mb-4 rounded'
+			style='background-color: rgba(110, 101, 101, 0.233);'
+		>
+			<img
+				class='rounded img-thumbnail img-fluid h-100 w-auto'
+				src={{webformatURL}}
+				alt={{tags}}
+				loading='lazy'
+			/>
+			<div
+				class='info border border-light d-flex align-items-center justify-content-evenly'
+			>
+				<p class='info-item d-flex flex-column align-items-center mt-3'>
+					<b>Likes</b>
+					<b> {{likes}}</b>
+				</p>
+				<p class='info-item d-flex flex-column align-items-center mt-3'>
+					<b>Views </b>
+					<b>{{views}}</b>
+				</p>
+				<p class='info-item d-flex flex-column align-items-center mt-3'>
+					<b>Comments</b>
+					<b>{{comments}}</b>
+				</p>
+				<p class='info-item d-flex flex-column align-items-center mt-3'>
+					<b>Downloads</b>
+					<b>{{downloads}}</b>
+				</p>
+			</div>
+		</div>
+	{{/each}}
+{{/each}}
