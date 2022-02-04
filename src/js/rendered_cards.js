@@ -1,6 +1,8 @@
 import cardsTpl from '../templates/cards.hbs';
 import Notiflix from 'notiflix';
 import PicturesApiService from './fetch_api';
+import SimpleLightbox from 'simplelightbox';
+import 'simplelightbox/dist/simple-lightbox.min.css';
 
 const picturesApiService = new PicturesApiService();
 
@@ -9,7 +11,7 @@ const picturesContainer = document.querySelector('.gallery');
 const guardian = document.querySelector('#guardian');
 
 Notiflix.Notify.init({
-	position: 'center-center',
+	position: 'top-right',
 	width: '400px',
 	fontSize: '18px',
 });
@@ -21,15 +23,31 @@ function onSearch(e) {
 	picturesApiService.query = e.currentTarget.elements.searchQuery.value;
 
 	if (picturesApiService.query === '') {
-		return Notiflix.Notify.failure('Введи что-то нормальное');
+		return Notiflix.Notify.failure('Wrong attempt bro, please enter something');
 	}
 
 	picturesApiService.resetPage();
 	clearPicturesContainer();
+
 	picturesApiService.fetchPictures().then(pictures => {
-		console.log(pictures);
+		console.log(pictures.data.totalHits);
+		if (pictures.data.totalHits !== 0) {
+			Notiflix.Notify.success(
+				`Hooray! We found ${pictures.data.totalHits} images.`,
+			);
+		}
+
+		if (pictures.data.hits.length === 0) {
+			return Notiflix.Notify.failure(
+				'Sorry, there are no images matching your search query. Please try again.',
+			);
+		}
 		insertPicturesMarkup(pictures);
 		picturesApiService.incrementPage();
+		const lightbox = new SimpleLightbox('.gallery a', {
+			captionsData: 'alt',
+			captionDelay: 250,
+		});
 	});
 }
 
@@ -44,9 +62,13 @@ function clearPicturesContainer() {
 const onEntry = entries => {
 	entries.forEach(entry => {
 		if (entry.isIntersecting && picturesApiService.query !== '') {
-			// console.log('Пора грузить еще статьи' + Date.now());
 			picturesApiService.fetchPictures().then(pictures => {
 				insertPicturesMarkup(pictures);
+				const lightbox = new SimpleLightbox('.gallery a', {
+					captionsData: 'alt',
+					captionDelay: 250,
+				});
+				lightbox.refresh();
 				picturesApiService.incrementPage();
 			});
 		}

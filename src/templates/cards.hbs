@@ -1,15 +1,17 @@
 {{#each this}}
 	{{#each hits}}
-		<div
-			class='col-3 d-flex align-self-stretch card shadow-sm mb-4 rounded'
-			style='background-color: rgba(110, 101, 101, 0.233);'
+		<a
+			href={{largeImageURL}}
+			class='col-3 d-flex align-self-stretch card shadow mb-4 rounded'
 		>
+
 			<img
 				class='rounded img-thumbnail img-fluid h-100 w-auto'
 				src={{webformatURL}}
 				alt={{tags}}
 				loading='lazy'
 			/>
+
 			<div
 				class='info border border-light d-flex align-items-center justify-content-evenly'
 			>
@@ -30,6 +32,7 @@
 					<b>{{downloads}}</b>
 				</p>
 			</div>
-		</div>
+
+		</a>
 	{{/each}}
 {{/each}}

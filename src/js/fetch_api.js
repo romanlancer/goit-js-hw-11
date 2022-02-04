@@ -31,6 +31,7 @@ export default class PicturesApiService {
 
 	incrementPage() {
 		this.page += 1;
+		
 	}
 
 	resetPage() {
