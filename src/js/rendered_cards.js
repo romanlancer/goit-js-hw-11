@@ -9,6 +9,7 @@ const picturesApiService = new PicturesApiService();
 const searchForm = document.querySelector('#search-form');
 const picturesContainer = document.querySelector('.gallery');
 const guardian = document.querySelector('#guardian');
+const spinner = document.querySelector('.spinner-border');
 
 Notiflix.Notify.init({
 	position: 'top-right',
@@ -28,7 +29,7 @@ function onSearch(e) {
 
 	picturesApiService.resetPage();
 	clearPicturesContainer();
-
+	spinner.classList.remove('is-hidden');
 	picturesApiService.fetchPictures().then(pictures => {
 		console.log(pictures.data.totalHits);
 		if (pictures.data.totalHits !== 0) {
@@ -48,6 +49,7 @@ function onSearch(e) {
 			captionsData: 'alt',
 			captionDelay: 250,
 		});
+		spinner.classList.add('is-hidden');
 	});
 }
 
@@ -62,6 +64,7 @@ function clearPicturesContainer() {
 const onEntry = entries => {
 	entries.forEach(entry => {
 		if (entry.isIntersecting && picturesApiService.query !== '') {
+			spinner.classList.remove('is-hidden');
 			picturesApiService.fetchPictures().then(pictures => {
 				insertPicturesMarkup(pictures);
 				const lightbox = new SimpleLightbox('.gallery a', {
@@ -70,6 +73,7 @@ const onEntry = entries => {
 				});
 				lightbox.refresh();
 				picturesApiService.incrementPage();
+				spinner.classList.add('is-hidden');
 			});
 		}
 	});

@@ -1,8 +1,7 @@
 #toTop {
 	position: fixed;
 	display: inline-block;
-	bottom: 80px;
-	right: -100px;
+
 	width: 40px;
 	height: 40px;
 	z-index: 1000;
@@ -34,5 +33,6 @@
 #toTop.show {
 	opacity: 1;
 	visibility: visible;
-	right: calc(2%);
+	right: calc(3%);
+	bottom: calc(11%);
 }

@@ -13,7 +13,16 @@
 	</head>
 	<body>
 		<!-- <include src="./partials/example.html"></include> -->
-		<i class="fa-regular fa-thumbs-up"></i>
+		<div class="position-fixed top-50 start-50 translate-middle">
+			<div
+				class="spinner-border is-hidden text-info"
+				style="width: 6rem; height: 6rem"
+				role="status"
+			>
+				<span class="visually-hidden">Loading...</span>
+			</div>
+		</div>
+
 		<div class="wrapper fixed-top">
 			<form class="search-form" id="search-form">
 				<input
@@ -40,9 +49,7 @@
 			</form>
 		</div>
 
-		<div
-			class="gallery d-flex justify-content-md-between flex-wrap container-fluid p-4"
-		>
+		<div class="gallery">
 			<!-- Карточки изображений -->
 		</div>
 
@@ -52,19 +59,18 @@
 
 		<div id="guardian"></div>
 
-		<div>
-			<a href="#" id="toTop">
-				<span
-					style="
-						font-size: 80px;
-						color: rgb(7, 63, 119);
-						--fa-beat-fade-opacity: 0.67;
-						--fa-beat-fade-scale: 1.075;
-					"
-					><i class="fa-solid fa-angles-up fa-beat-fade"></i
-				></span>
-			</a>
-		</div>
+		<a href="#" id="toTop">
+			<span
+				style="
+					font-size: 80px;
+					color: rgb(7, 63, 119);
+					--fa-beat-fade-opacity: 0.67;
+					--fa-beat-fade-scale: 1.075;
+				"
+				><i class="fa-solid fa-angles-up fa-beat-fade"></i
+			></span>
+		</a>
+
 		<script src="./index.js"></script>
 	</body>
 </html>
