@@ -30,8 +30,8 @@ function onSearch(e) {
 	picturesApiService.resetPage();
 	clearPicturesContainer();
 	spinner.classList.remove('is-hidden');
+
 	picturesApiService.fetchPictures().then(pictures => {
-		console.log(pictures.data.totalHits);
 		if (pictures.data.totalHits !== 0) {
 			Notiflix.Notify.success(
 				`Hooray! We found ${pictures.data.totalHits} images.`,
@@ -65,7 +65,15 @@ const onEntry = entries => {
 	entries.forEach(entry => {
 		if (entry.isIntersecting && picturesApiService.query !== '') {
 			spinner.classList.remove('is-hidden');
+
 			picturesApiService.fetchPictures().then(pictures => {
+				console.log(pictures.data.hits.length);
+				console.log(pictures.data.totalHits);
+				if (pictures.data.hits.length === 0) {
+					Notiflix.Notify.info(
+						"We're sorry, but you've reached the end of search results.",
+					);
+				}
 				insertPicturesMarkup(pictures);
 				const lightbox = new SimpleLightbox('.gallery a', {
 					captionsData: 'alt',

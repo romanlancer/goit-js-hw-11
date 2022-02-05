@@ -1,35 +1,37 @@
 {{#each this}}
 	{{#each hits}}
-		<a href={{largeImageURL}} class='gallery__item shadow p-2 rounded'>
-			<div class='photo-card'>
-				<div class='img_wrapper stretch'><img
-						class='rounded img-thumbnail shadow'
-						src={{webformatURL}}
-						alt={{tags}}
-						loading='lazy'
-					/></div>
+		<div class='gallery__item'>
+			<a href={{largeImageURL}} class='rounded'>
+				<div class='photo-card'>
+					<div class='img_wrapper stretch'><img
+							class='rounded img-thumbnail shadow'
+							src={{webformatURL}}
+							alt={{tags}}
+							loading='lazy'
+						/></div>
 
-				<div
-					class='info border border-light d-flex align-items-center justify-content-evenly pt-2'
-				>
-					<p class='info-item d-flex flex-column align-items-center mb-0'>
-						<b><i class='fa-solid fa-thumbs-up fa-xl'></i></b>
-						<b> {{likes}}</b>
-					</p>
-					<p class='info-item d-flex flex-column align-items-center mb-0'>
-						<b><i class='fa-solid fa-eye fa-xl'></i></b>
-						<b>{{views}}</b>
-					</p>
-					<p class='info-item d-flex flex-column align-items-center mb-0'>
-						<b><i class='fa-solid fa-comments fa-xl'></i></b>
-						<b>{{comments}}</b>
-					</p>
-					<p class='info-item d-flex flex-column align-items-center mb-0'>
-						<b><i class='fa-solid fa-download fa-xl'></i></b>
-						<b>{{downloads}}</b>
-					</p>
+					<div
+						class='info d-flex align-items-center justify-content-evenly pt-2'
+					>
+						<p class='info-item d-flex flex-column align-items-center mb-0'>
+							<b><i class='fa-solid fa-thumbs-up fa-xl'></i></b>
+							<b> {{likes}}</b>
+						</p>
+						<p class='info-item d-flex flex-column align-items-center mb-0'>
+							<b><i class='fa-solid fa-eye fa-xl'></i></b>
+							<b>{{views}}</b>
+						</p>
+						<p class='info-item d-flex flex-column align-items-center mb-0'>
+							<b><i class='fa-solid fa-comments fa-xl'></i></b>
+							<b>{{comments}}</b>
+						</p>
+						<p class='info-item d-flex flex-column align-items-center mb-0'>
+							<b><i class='fa-solid fa-download fa-xl'></i></b>
+							<b>{{downloads}}</b>
+						</p>
+					</div>
 				</div>
-			</div>
-		</a>
+			</a>
+		</div>
 	{{/each}}
 {{/each}}
