@@ -18,6 +18,11 @@ Notiflix.Notify.init({
 	fontSize: '18px',
 });
 
+const lightbox = new SimpleLightbox('.gallery a', {
+	captionsData: 'alt',
+	captionDelay: 250,
+});
+
 searchForm.addEventListener('submit', onSearch);
 
 function onSearch(e) {
@@ -47,10 +52,8 @@ function onSearch(e) {
 
 		insertPicturesMarkup(pictures);
 		picturesApiService.incrementPage();
-		const lightbox = new SimpleLightbox('.gallery a', {
-			captionsData: 'alt',
-			captionDelay: 250,
-		});
+
+		lightbox.refresh();
 		spinner.classList.add('is-hidden');
 	});
 }
@@ -77,10 +80,7 @@ const onEntry = entries => {
 					);
 				}
 				insertPicturesMarkup(pictures);
-				const lightbox = new SimpleLightbox('.gallery a', {
-					captionsData: 'alt',
-					captionDelay: 250,
-				});
+
 				lightbox.refresh();
 				picturesApiService.incrementPage();
 				spinner.classList.add('is-hidden');

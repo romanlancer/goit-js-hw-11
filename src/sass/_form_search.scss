@@ -11,17 +11,24 @@
 	box-shadow: 2px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
 		0px 2px 2px rgba(0, 0, 0, 0.12);
 }
+.search-form input {
+	font-size: 20px;
+
+	background-color: transparent;
+}
+.search-form button {
+	background-color: transparent;
+}
+
+.search-form input::placeholder {
+	font-size: 20px;
+}
 
 .wrapper {
 	background-color: rgba(91, 172, 164, 0.521);
 	padding-bottom: 15px;
 	padding-top: 15px;
 	border-radius: 20px;
-}
-
-.search-form button {
-	margin-left: 30px;
-	background-color: transparent;
 }
 
 .load-more {
