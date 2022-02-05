@@ -2,6 +2,7 @@ import cardsTpl from '../templates/cards.hbs';
 import Notiflix from 'notiflix';
 import PicturesApiService from './fetch_api';
 import SimpleLightbox from 'simplelightbox';
+
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
 const picturesApiService = new PicturesApiService();
@@ -43,6 +44,7 @@ function onSearch(e) {
 				'Sorry, there are no images matching your search query. Please try again.',
 			);
 		}
+
 		insertPicturesMarkup(pictures);
 		picturesApiService.incrementPage();
 		const lightbox = new SimpleLightbox('.gallery a', {
