@@ -1,12 +1,9 @@
 {{#each this}}
 	{{#each hits}}
-		<a
-			href={{largeImageURL}}
-			class='col-3 d-flex align-self-stretch card shadow mb-4 rounded'
-		>
+		<a href={{largeImageURL}} class='col-3 d-flex card shadow p-2 rounded'>
 
 			<img
-				class='rounded img-thumbnail img-fluid h-100 w-auto'
+				class='rounded img-thumbnail shadow img-fluid h-100'
 				src={{webformatURL}}
 				alt={{tags}}
 				loading='lazy'
@@ -15,20 +12,20 @@
 			<div
 				class='info border border-light d-flex align-items-center justify-content-evenly'
 			>
-				<p class='info-item d-flex flex-column align-items-center mt-3'>
-					<b>Likes</b>
+				<p class='info-item d-flex flex-column align-items-center mt-4'>
+					<b><i class='fa-solid fa-thumbs-up fa-xl'></i></b>
 					<b> {{likes}}</b>
 				</p>
-				<p class='info-item d-flex flex-column align-items-center mt-3'>
-					<b>Views </b>
+				<p class='info-item d-flex flex-column align-items-center mt-4'>
+					<b><i class='fa-solid fa-eye fa-xl'></i></b>
 					<b>{{views}}</b>
 				</p>
-				<p class='info-item d-flex flex-column align-items-center mt-3'>
-					<b>Comments</b>
+				<p class='info-item d-flex flex-column align-items-center mt-4'>
+					<b><i class='fa-solid fa-comments fa-xl'></i></b>
 					<b>{{comments}}</b>
 				</p>
-				<p class='info-item d-flex flex-column align-items-center mt-3'>
-					<b>Downloads</b>
+				<p class='info-item d-flex flex-column align-items-center mt-4'>
+					<b><i class='fa-solid fa-download fa-xl'></i></b>
 					<b>{{downloads}}</b>
 				</p>
 			</div>

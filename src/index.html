@@ -13,9 +13,9 @@
 	</head>
 	<body>
 		<!-- <include src="./partials/example.html"></include> -->
-
-		<div class="wrapper">
-			<form class="search-form sticky-top" id="search-form">
+		<i class="fa-regular fa-thumbs-up"></i>
+		<div class="wrapper fixed-top">
+			<form class="search-form" id="search-form">
 				<input
 					type="text"
 					name="searchQuery"
@@ -41,17 +41,30 @@
 		</div>
 
 		<div
-			class="gallery d-flex justify-content-md-between flex-wrap container-fluid"
+			class="gallery d-flex justify-content-md-between flex-wrap container-fluid p-4"
 		>
 			<!-- Карточки изображений -->
 		</div>
 
-		<button type="button" class="btn btn-outline-info load-more">
+		<!-- <button type="button" class="btn btn-outline-info load-more">
 			Load more
-		</button>
+		</button> -->
 
 		<div id="guardian"></div>
 
+		<div>
+			<a href="#" id="toTop">
+				<span
+					style="
+						font-size: 80px;
+						color: rgb(7, 63, 119);
+						--fa-beat-fade-opacity: 0.67;
+						--fa-beat-fade-scale: 1.075;
+					"
+					><i class="fa-solid fa-angles-up fa-beat-fade"></i
+				></span>
+			</a>
+		</div>
 		<script src="./index.js"></script>
 	</body>
 </html>
