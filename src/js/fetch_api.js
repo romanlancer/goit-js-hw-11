@@ -47,4 +47,4 @@ export default class PicturesApiService {
 	}
 }
 
-// fetchPictures().then(data => console.log(data));
+
