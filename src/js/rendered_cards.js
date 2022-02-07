@@ -38,14 +38,12 @@ function onSearch(e) {
 	spinner.classList.remove('is-hidden');
 
 	picturesApiService.fetchPictures().then(pictures => {
-		if (pictures.data.totalHits !== 0) {
+		if (pictures.data.totalHits !== 0 && pictures.data.hits.length !== 0) {
 			Notiflix.Notify.success(
 				`Hooray! We found ${pictures.data.totalHits} images.`,
 			);
-		}
-
-		if (pictures.data.hits.length === 0) {
-			return Notiflix.Notify.failure(
+		} else {
+			Notiflix.Notify.failure(
 				'Sorry, there are no images matching your search query. Please try again.',
 			);
 		}
@@ -71,20 +69,27 @@ const onEntry = entries => {
 		if (entry.isIntersecting && picturesApiService.query !== '') {
 			spinner.classList.remove('is-hidden');
 
-			picturesApiService.fetchPictures().then(pictures => {
-				console.log(pictures.data.hits.length);
-				console.log(pictures.data.totalHits);
-				if (pictures.data.hits.length === 0) {
-					Notiflix.Notify.info(
-						"We're sorry, but you've reached the end of search results.",
-					);
-				}
-				insertPicturesMarkup(pictures);
+			picturesApiService
+				.fetchPictures()
+				.then(pictures => {
+					if (
+						pictures.data.hits.length === 0 &&
+						pictures.data.totalHits !== 0
+					) {
+						Notiflix.Notify.info(
+							"We're sorry, but you've reached the end of search results.",
+						);
+					}
 
-				lightbox.refresh();
-				picturesApiService.incrementPage();
-				spinner.classList.add('is-hidden');
-			});
+					insertPicturesMarkup(pictures);
+
+					lightbox.refresh();
+					picturesApiService.incrementPage();
+					spinner.classList.add('is-hidden');
+				})
+				.finally(pictures => {
+					spinner.classList.add('is-hidden');
+				});
 		}
 	});
 };
