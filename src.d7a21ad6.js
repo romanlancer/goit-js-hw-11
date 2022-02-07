@@ -88,4 +88,4 @@ function e(e,n=700){const t=document.scrollingElement||document.documentElement,
 },{}],"Focm":[function(require,module,exports) {
 "use strict";require("./sass/main.scss"),require("../node_modules/@fortawesome/fontawesome-free/js/solid.min"),require("../node_modules/@fortawesome/fontawesome-free/js/fontawesome.min"),require("./js/fetch_api"),require("./js/rendered_cards"),require("./js/to_top");
 },{"./sass/main.scss":"clu1","../node_modules/@fortawesome/fontawesome-free/js/solid.min":"tNNA","../node_modules/@fortawesome/fontawesome-free/js/fontawesome.min":"gbgu","./js/fetch_api":"YfQB","./js/rendered_cards":"NMEE","./js/to_top":"zpwY"}]},{},["Focm"], null)
-//# sourceMappingURL=/goit-js-hw-11/src.32104e4a.js.map
+//# sourceMappingURL=/goit-js-hw-11/src.d7a21ad6.js.map
